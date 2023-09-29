@@ -1,0 +1,14 @@
+#영화목록
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Movie List</h2>
+    <ul>
+        {% for movie in movies %}
+            <li><a href="{% url 'movie-detail' movie.pk %}">{{ movie.title }}</a></li>
+        {% empty %}
+            <li>No movies available.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
